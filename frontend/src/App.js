@@ -1,22 +1,39 @@
+/* React */
 import React, {Component} from 'react';
 
-import './style/css/App.css';
+/* Other */
 import HostedOn from 'hosted_on';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+
+/* Mine */
+import MyApps from './components/MyApps';
+
+
+/* Style */
+import './style/css/App.css';
+
 
 class App extends Component {
-    render() {
+    /* Might need redux */
+    render () {
         return (
-            <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">Welcome to my website</h1>
-                </header>
+            <MuiThemeProvider>
+                <div className="App">
+                    <header className="App-header">
+                        <h1 className="App-title">Welcome to my website</h1>
+                    </header>
 
-                <p className="App-intro">
-                    This is a gallery on <code>apps</code> I made.
-                </p>
+                    <p className="App-intro">
+                        This is a gallery on <code>apps</code> I made.
+                    </p>
 
-                <HostedOn link="https://github.com/mayk93/MyApps" new_tab={false} />
-            </div>
+                    <hr/>
+
+                    <MyApps />
+
+                    <HostedOn link="https://github.com/mayk93/MyApps" new_tab={false} />
+                </div>
+            </MuiThemeProvider>
         );
     }
 }
