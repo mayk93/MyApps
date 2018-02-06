@@ -7,6 +7,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 /* Mine */
 import MyApps from './components/MyApps';
+import About from './components/About';
 
 
 /* Style */
@@ -30,6 +31,8 @@ class App extends Component {
                     <hr/>
 
                     <MyApps />
+
+                    <About />
 
                     <HostedOn link="https://github.com/mayk93/MyApps" new_tab={false} />
                 </div>
