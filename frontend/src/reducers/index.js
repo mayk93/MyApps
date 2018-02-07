@@ -2,10 +2,8 @@
  * Created by michael on 07/02/2018.
  */
 
-import {combineReducers} from 'redux';
-
 /* Reducers */
 
-const rootReducer = combineReducers({});
+const rootReducer = {};
 
 export default rootReducer;
