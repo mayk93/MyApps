@@ -45,7 +45,7 @@ class Projects extends Component {
                     <List>
                         <ListItem primaryText="The weather app" leftIcon={<AcUnit />}
                                   onClick={() => {
-                                      go_to("http://projects.myapps.gallery/projects")
+                                      go_to("http://projects.myapps.gallery/weather")
                                   }}
                         />
                     </List>
