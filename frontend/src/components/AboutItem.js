@@ -11,7 +11,7 @@ import FlatButton from 'material-ui/FlatButton';
 import Divider from 'material-ui/Divider';
 
 /* Style and CSS */
-import {my_apps_card_style, my_apps_text_style} from '../style/js/MyApps';
+import {my_apps_inner_card_style, my_apps_text_style} from '../style/js/MyApps';
 
 let go_to = (url) => {
     window.open(url, '_blank');
@@ -31,7 +31,7 @@ class AboutItem extends Component {
 
     render() {
         return (
-            <Card style={my_apps_card_style}>
+            <Card style={my_apps_inner_card_style}>
                 <CardHeader
                   title={this.state.title}
                   textStyle={my_apps_text_style}
@@ -55,7 +55,7 @@ class AboutItem extends Component {
                         }}/>
                     </CardActions>
                     :
-                    <diiv></diiv>
+                    <div></div>
                 }
             </Card>
         )

@@ -9,16 +9,16 @@ import React, {Component} from 'react';
 import {Card, CardHeader} from 'material-ui/Card';
 
 /* Style and CSS */
-import {my_apps_card_style, my_apps_text_style} from '../style/js/MyApps';
+import {my_apps_outer_card_style, my_apps_text_style} from '../style/js/MyApps';
 
 class MyApps extends Component {
-    constructor () {
-        super();
+    constructor (props) {
+        super(props);
     }
 
     render () {
         return (
-            <Card style={my_apps_card_style}>
+            <Card onClick={this.props.onClick} style={my_apps_outer_card_style}>
                 <CardHeader
                   title="Projects"
                   subtitle="Some of my personal projects."

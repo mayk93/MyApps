@@ -9,13 +9,30 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import MyApps from './components/MyApps';
 import About from './components/About';
 
-
 /* Style */
 import './style/css/App.css';
 
+/* Constants */
+import {PROJECTS, ABOUT} from './constants';
+
 
 class App extends Component {
-    /* Might need redux */
+    constructor (props) {
+        super(props);
+        this.state = {
+            selected: ABOUT
+        };
+
+        // this.set_selected.bind(this);
+    };
+
+    set_selected (selected) {
+        console.log('Selected: ', selected);
+        this.setState({
+            selected: selected
+        });
+    };
+
     render () {
         return (
             <MuiThemeProvider>
@@ -30,9 +47,8 @@ class App extends Component {
 
                     <hr/>
 
-                    <MyApps />
-
-                    <About />
+                    <MyApps selected={this.state.selected} onClick={() => {this.set_selected(PROJECTS)}} />
+                    <About selected={this.state.selected} onClick={() => {this.set_selected(ABOUT)}} />
 
                     <HostedOn link="https://github.com/mayk93/MyApps" new_tab={false} />
                 </div>
