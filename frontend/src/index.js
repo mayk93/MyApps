@@ -6,7 +6,7 @@
  External libs / components
  My libs / components
  Actions
- Constants
+ Functions and Constants
  Style and CSS
 
  Other
@@ -57,8 +57,6 @@ ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
-
-
                 <Route exact path="/" component={App}/>
                 <Route exact path="/about" component={About}/>
 

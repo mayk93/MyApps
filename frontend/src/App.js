@@ -18,13 +18,33 @@ import Divider from 'material-ui/Divider';
 import './style/css/App.css';
 import {my_apps_outer_card_style, my_apps_text_style} from './style/js/MyApps';
 
+/* Constants */
+import {cat_url} from './constants';
 
 class App extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            main_clicked: false
+        }
     };
 
+    click_handler() {
+        this.setState({
+            main_clicked: true
+        })
+    };
+
+    navigate() {
+        this.setState({
+            main_clicked: false
+        }, () => {
+            this.props.history.push('/about')
+        })
+    }
+
     render() {
+        // ToDo: Add Redux Sagas and actually get cat picture from cat API
         return (
             <MuiThemeProvider>
                 <div className="App">
@@ -48,12 +68,28 @@ class App extends Component {
                         <Divider />
 
                         <List>
-                            <ListItem primaryText="Main page" leftIcon={<Public />}/>
+                            <ListItem primaryText="Main page" leftIcon={<Public />}
+                                      onClick={() => {this.click_handler()}}
+                            />
                             <ListItem primaryText="About" leftIcon={<Info />}
-                                      onClick={() => {this.props.history.push('/about')}}
+                                      onClick={() => {this.navigate()}}
                             />
                         </List>
                     </Card>
+
+                    {
+                        this.state.main_clicked
+                        ?
+                        <Card style={my_apps_outer_card_style}>
+                            <CardHeader
+                              title="You are already on the main page"
+                              subtitle="Have a cat picture instead."
+                              textStyle={my_apps_text_style}
+                            />
+                        </Card>
+                        :
+                        <div></div>
+                    }
                 </div>
             </MuiThemeProvider>
         );
