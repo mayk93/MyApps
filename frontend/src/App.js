@@ -56,7 +56,7 @@ class App extends Component {
                     </header>
 
                     <p className="App-intro">
-                        This is a gallery on <code>apps</code> I made.
+                        Hi! My name is Michael and this is a gallery on <code>apps</code> I made.
                     </p>
 
                     <Card style={my_apps_outer_card_style}>
