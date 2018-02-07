@@ -26,9 +26,15 @@ import { Route } from 'react-router';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
+/* External libs / components */
+import HostedOn from 'hosted_on';
+
 /* Actual APP */
 import App from './App';
 import './style/css/index.css';
+
+/* Routes */
+import About from './components/About';
 
 /* Service worker */
 import registerServiceWorker from './registerServiceWorker';
@@ -51,7 +57,12 @@ ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
+
+
                 <Route exact path="/" component={App}/>
+                <Route exact path="/about" component={About}/>
+
+                <HostedOn link="https://github.com/mayk93/MyApps" new_tab={true} />
             </div>
         </ConnectedRouter>
     </Provider>
