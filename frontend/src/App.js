@@ -1,19 +1,19 @@
 /* React */
 import React, {Component} from 'react';
 
-/* Other */
+/* External libs / components */
 import HostedOn from 'hosted_on';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
-/* Mine */
+/* My libs / components */
 import MyApps from './components/MyApps';
 import About from './components/About';
 
-/* Style */
-import './style/css/App.css';
-
 /* Constants */
 import {PROJECTS, ABOUT} from './constants';
+
+/* Style */
+import './style/css/App.css';
 
 
 class App extends Component {

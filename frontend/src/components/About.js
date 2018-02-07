@@ -5,22 +5,23 @@
 /* React */
 import React, {Component} from 'react';
 
-/* Material UI */
+/* External libs / components */
 import {Card, CardHeader} from 'material-ui/Card';
 
-/* Style and CSS */
-import {my_apps_outer_card_style, my_apps_text_style} from '../style/js/MyApps';
-
-/* Mine */
+/* My libs / components */
 import AboutItem from './AboutItem';
 
 /* Constants */
 import {ABOUT} from '../constants'
 
+/* Style and CSS */
+import {my_apps_outer_card_style, my_apps_text_style} from '../style/js/MyApps';
+
 /* Content */
 import mongo_router_description from '../content/mongo_router.html';
 import hosted_on_description from '../content/hosted_on.html';
 import contact_description from '../content/contact.html';
+
 
 class About extends Component {
     constructor (props) {

@@ -5,18 +5,16 @@
 /* React */
 import React, {Component} from 'react';
 
-/* Material UI */
+/* External libs / components */
 import {Card, CardHeader, CardActions} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import Divider from 'material-ui/Divider';
 
+/* My libs / components */
+import {go_to} from '../utils/functions';
+
 /* Style and CSS */
 import {my_apps_inner_card_style, my_apps_text_style} from '../style/js/MyApps';
-
-let go_to = (url) => {
-    window.open(url, '_blank');
-    window.focus();
-};
 
 class AboutItem extends Component {
     constructor(props) {

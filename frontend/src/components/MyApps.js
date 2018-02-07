@@ -5,11 +5,12 @@
 /* React */
 import React, {Component} from 'react';
 
-/* Material UI */
+/* External libs / components */
 import {Card, CardHeader} from 'material-ui/Card';
 
 /* Style and CSS */
 import {my_apps_outer_card_style, my_apps_text_style} from '../style/js/MyApps';
+
 
 class MyApps extends Component {
     constructor (props) {
