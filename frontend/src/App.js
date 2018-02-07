@@ -11,6 +11,7 @@ import {Card, CardHeader} from 'material-ui/Card';
 import {List, ListItem} from 'material-ui/List';
 import Info from 'material-ui/svg-icons/action/info';
 import Public from 'material-ui/svg-icons/social/public';
+import Code from 'material-ui/svg-icons/action/code';
 import Divider from 'material-ui/Divider';
 
 /* Actions */
@@ -73,6 +74,11 @@ class App extends Component {
                             <ListItem primaryText="Main page" leftIcon={<Public />}
                                       onClick={() => {
                                           this.click_handler()
+                                      }}
+                            />
+                            <ListItem primaryText="Projects" leftIcon={<Code />}
+                                      onClick={() => {
+                                          this.navigate('/projects')
                                       }}
                             />
                             <ListItem primaryText="About" leftIcon={<Info />}

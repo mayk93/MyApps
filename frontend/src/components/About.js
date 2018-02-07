@@ -9,14 +9,8 @@ import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card, CardHeader} from 'material-ui/Card';
 
-/* My libs / components */
-import AboutItem from './AboutItem';
-
-/* Constants */
-import {ABOUT} from '../constants'
-
 /* Style and CSS */
-import {my_apps_outer_card_style, my_apps_inner_card_style, my_apps_text_style} from '../style/js/MyApps';
+import {my_apps_outer_card_style, my_apps_text_style} from '../style/js/MyApps';
 
 /* Content */
 import about from '../content/about.html';

@@ -32,13 +32,12 @@ import HostedOn from 'hosted_on';
 /* My libs / components */
 import TopMenu from './containers/TopMenu';
 import SideMenu from './containers/SideMenu';
+import Projects from './containers/Projects';
+import About from './components/About';
 
 /* Actual APP */
 import App from './App';
 import './style/css/index.css';
-
-/* Routes */
-import About from './components/About';
 
 /* Service worker */
 import registerServiceWorker from './registerServiceWorker';
@@ -66,6 +65,7 @@ ReactDOM.render(
 
                 <Route exact path="/" component={App}/>
                 <Route exact path="/about" component={About}/>
+                <Route exact path="/projects" component={Projects}/>
 
                 <HostedOn link="https://github.com/mayk93/MyApps" new_tab={true}/>
             </div>

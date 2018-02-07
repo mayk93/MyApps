@@ -15,6 +15,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import Info from 'material-ui/svg-icons/action/info';
 import Public from 'material-ui/svg-icons/social/public';
+import Code from 'material-ui/svg-icons/action/code';
 
 /* Actions */
 import {set_menu_open} from '../actions';
@@ -35,6 +36,9 @@ class SideMenu extends Component {
                     <MenuItem onClick={() => {
                         this.props.history.push("/")
                     }} rightIcon={<Public />}>Main page</MenuItem>
+                    <MenuItem onClick={() => {
+                        this.props.history.push("/projects")
+                    }} rightIcon={<Code />}>Projects</MenuItem>
                     <MenuItem onClick={() => {
                         this.props.history.push("/about")
                     }} rightIcon={<Info />}>About</MenuItem>
