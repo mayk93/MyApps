@@ -14,37 +14,7 @@ import {my_apps_card_style, my_apps_text_style} from '../style/js/MyApps';
 /* Mine */
 import AboutItem from './AboutItem';
 
-let mongo_router_description = `
-A library built on top of <code>pymongo</code> allowing users to route to their <code>mongo</code> collections 
-using only the collection name.
-
-<br/>
-<br/>
-
-This package abstracts away connection data, database info and even the collection name used by the database.
-
-Using a configurable set of rules, <code>MongoRouter</code> allows users to access their collection like this.
-
-<br/>
-<br/>
-
-<code>
-mongo = MongoRouter()
-<br/>
-mongo.route("my_collection")
-</code>
-
-<br/>
-<br/>
-
-<code>MongoRouter</code> will know, based on the configuration, what machine it should connect to, 
-what database on that machine it should access and what collection in that database corresponds to <i>my_collection</i>.
-
-<br/>
-<br/>
-
-You can get the package with <code>pip install MongoRouter</code>.
-`;
+import mongo_router_description from '../content/mongo_router.html';
 
 let hosted_on_description = `
 A simple <code>React</code> component that acts as a footer. 
