@@ -10,24 +10,28 @@
  Style and CSS
 
  Other
-*/
+ */
 
 /* React */
 import React from 'react';
 import ReactDOM from 'react-dom';
 
 /* Redux */
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, combineReducers } from 'redux';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
 import reducers from './reducers';
 
 /* Router */
-import { Route } from 'react-router';
-import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
+import {Route} from 'react-router';
+import {ConnectedRouter, routerReducer, routerMiddleware} from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 
 /* External libs / components */
 import HostedOn from 'hosted_on';
+
+/* My libs / components */
+import TopMenu from './containers/TopMenu';
+import SideMenu from './containers/SideMenu';
 
 /* Actual APP */
 import App from './App';
@@ -57,10 +61,13 @@ ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
+                <Route component={TopMenu} />
+                <Route component={SideMenu} />
+
                 <Route exact path="/" component={App}/>
                 <Route exact path="/about" component={About}/>
 
-                <HostedOn link="https://github.com/mayk93/MyApps" new_tab={true} />
+                <HostedOn link="https://github.com/mayk93/MyApps" new_tab={true}/>
             </div>
         </ConnectedRouter>
     </Provider>

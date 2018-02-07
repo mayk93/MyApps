@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 /* Redux */
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import { push } from 'react-router-redux';
 
 /* External libs / components */
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -13,6 +12,9 @@ import {List, ListItem} from 'material-ui/List';
 import Info from 'material-ui/svg-icons/action/info';
 import Public from 'material-ui/svg-icons/social/public';
 import Divider from 'material-ui/Divider';
+
+/* Actions */
+import {set_menu_open} from './actions';
 
 /* Style */
 import './style/css/App.css';
@@ -35,11 +37,11 @@ class App extends Component {
         })
     };
 
-    navigate() {
+    navigate(target) {
         this.setState({
             main_clicked: false
         }, () => {
-            this.props.history.push('/about')
+            this.props.history.push(target)
         })
     }
 
@@ -58,9 +60,9 @@ class App extends Component {
 
                     <Card style={my_apps_outer_card_style}>
                         <CardHeader
-                          title="Main page"
-                          subtitle="Welcome to my gallery."
-                          textStyle={my_apps_text_style}
+                            title="Main page"
+                            subtitle="Welcome to my gallery."
+                            textStyle={my_apps_text_style}
                         />
 
                         <Divider />
@@ -69,26 +71,30 @@ class App extends Component {
 
                         <List>
                             <ListItem primaryText="Main page" leftIcon={<Public />}
-                                      onClick={() => {this.click_handler()}}
+                                      onClick={() => {
+                                          this.click_handler()
+                                      }}
                             />
                             <ListItem primaryText="About" leftIcon={<Info />}
-                                      onClick={() => {this.navigate()}}
+                                      onClick={() => {
+                                          this.navigate('/about')
+                                      }}
                             />
                         </List>
                     </Card>
 
                     {
                         this.state.main_clicked
-                        ?
-                        <Card style={my_apps_outer_card_style}>
-                            <CardHeader
-                              title="You are already on the main page"
-                              subtitle="Have a cat picture instead."
-                              textStyle={my_apps_text_style}
-                            />
-                        </Card>
-                        :
-                        <div></div>
+                            ?
+                            <Card style={my_apps_outer_card_style}>
+                                <CardHeader
+                                    title="You are already on the main page"
+                                    subtitle="Have a cat picture instead."
+                                    textStyle={my_apps_text_style}
+                                />
+                            </Card>
+                            :
+                            <div></div>
                     }
                 </div>
             </MuiThemeProvider>
@@ -97,11 +103,15 @@ class App extends Component {
 }
 
 function mapStateToProps(state) {
-    return {};
+    return {
+        menu_state: state.menu_state
+    };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({}, dispatch);
+    return bindActionCreators({
+        set_menu_open
+    }, dispatch);
 }
 
 

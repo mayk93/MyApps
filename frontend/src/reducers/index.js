@@ -3,7 +3,10 @@
  */
 
 /* Reducers */
+import menu_state_reducer from './reducer_menu_state';
 
-const rootReducer = {};
+const root_reducer = {
+    menu_state: menu_state_reducer
+};
 
-export default rootReducer;
+export default root_reducer;
