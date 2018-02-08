@@ -14,6 +14,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card, CardHeader} from 'material-ui/Card';
 import {List, ListItem} from 'material-ui/List';
 import AcUnit from 'material-ui/svg-icons/places/ac-unit';
+import Language from 'material-ui/svg-icons/action/language';
 import Divider from 'material-ui/Divider';
 
 /* My libs / components */
@@ -53,7 +54,15 @@ class Projects extends Component {
                         <List>
                             <ListItem primaryText="The weather app" leftIcon={<AcUnit />}
                                       onClick={() => {
-                                          go_to("http://projects.myapps.gallery/weather")
+                                          go_to("http://projects.myapps.gallery/weather/")
+                                      }}
+                            />
+                        </List>
+
+                        <List>
+                            <ListItem primaryText="The bounce app" leftIcon={<Language />}
+                                      onClick={() => {
+                                          go_to("http://projects.myapps.gallery/bounce/")
                                       }}
                             />
                         </List>
