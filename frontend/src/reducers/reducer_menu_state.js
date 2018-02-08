@@ -5,7 +5,7 @@
 import {SET_MENU} from '../utils/types';
 
 
-export default function (state=true, action) {
+export default function (state=false, action) {
     switch (action.type) {
         case SET_MENU:
             return action.payload;

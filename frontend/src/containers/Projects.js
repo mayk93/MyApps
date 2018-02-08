@@ -16,6 +16,9 @@ import {List, ListItem} from 'material-ui/List';
 import AcUnit from 'material-ui/svg-icons/places/ac-unit';
 import Divider from 'material-ui/Divider';
 
+/* My libs / components */
+import TopMenu from './TopMenu';
+
 /* Functions and Constants */
 import {go_to} from '../utils/functions';
 
@@ -31,25 +34,31 @@ class Projects extends Component {
     render() {
         return (
             <MuiThemeProvider>
-                <Card style={my_apps_outer_card_style}>
-                    <CardHeader
-                        title="Projects"
-                        subtitle="This is a outline of some of my projects."
-                        textStyle={my_apps_text_style}
-                    />
+                <div>
+                    <header>
+                        <TopMenu/>
+                    </header>
 
-                    <Divider />
-                    <div style={{paddingBottom: "10px", backgroundColor: "black"}}></div>
-                    <Divider />
-
-                    <List>
-                        <ListItem primaryText="The weather app" leftIcon={<AcUnit />}
-                                  onClick={() => {
-                                      go_to("http://projects.myapps.gallery/weather")
-                                  }}
+                    <Card style={my_apps_outer_card_style}>
+                        <CardHeader
+                            title="Projects"
+                            subtitle="This is a outline of some of my projects."
+                            textStyle={my_apps_text_style}
                         />
-                    </List>
-                </Card>
+
+                        <Divider />
+                        <div style={{paddingBottom: "10px", backgroundColor: "black"}}></div>
+                        <Divider />
+
+                        <List>
+                            <ListItem primaryText="The weather app" leftIcon={<AcUnit />}
+                                      onClick={() => {
+                                          go_to("http://projects.myapps.gallery/weather")
+                                      }}
+                            />
+                        </List>
+                    </Card>
+                </div>
             </MuiThemeProvider>
         );
     }

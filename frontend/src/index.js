@@ -30,10 +30,9 @@ import createHistory from 'history/createBrowserHistory';
 import HostedOn from 'hosted_on';
 
 /* My libs / components */
-import TopMenu from './containers/TopMenu';
 import SideMenu from './containers/SideMenu';
 import Projects from './containers/Projects';
-import About from './components/About';
+import About from './containers/About';
 
 /* Actual APP */
 import App from './App';
@@ -60,7 +59,6 @@ ReactDOM.render(
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
-                <Route component={TopMenu} />
                 <Route component={SideMenu} />
 
                 <Route exact path="/" component={App}/>

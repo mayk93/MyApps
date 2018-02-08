@@ -14,12 +14,16 @@ import Public from 'material-ui/svg-icons/social/public';
 import Code from 'material-ui/svg-icons/action/code';
 import Divider from 'material-ui/Divider';
 
+/* My libs / components */
+import TopMenu from './containers/TopMenu';
+
 /* Actions */
 import {set_menu_open} from './actions';
 
 /* Style */
 import './style/css/App.css';
 import {my_apps_outer_card_style, my_apps_text_style} from './style/js/MyApps';
+import {flex_container, flex_90, flex_10} from './style/js/Flex';
 
 /* Constants */
 import {cat_url} from './constants';
@@ -52,7 +56,14 @@ class App extends Component {
             <MuiThemeProvider>
                 <div className="App">
                     <header className="App-header">
-                        <h1 className="App-title">Welcome to my website</h1>
+                        <div style={flex_container}>
+                            <div style={flex_10}>
+                                <TopMenu />
+                            </div>
+                            <div style={flex_90}>
+                                <h1 className="App-title">Welcome to my website</h1>
+                            </div>
+                        </div>
                     </header>
 
                     <p className="App-intro">
@@ -67,7 +78,7 @@ class App extends Component {
                         />
 
                         <Divider />
-                        <div style={{paddingBottom: "10px", backgroundColor: "black"}}></div>
+                            <div style={{paddingBottom: "10px", backgroundColor: "black"}}></div>
                         <Divider />
 
                         <List>
