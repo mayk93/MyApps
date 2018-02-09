@@ -18,7 +18,7 @@ import Divider from 'material-ui/Divider';
 import TopMenu from './containers/TopMenu';
 
 /* Actions */
-import {set_menu_open} from './actions';
+import {set_menu_open, get_cat} from './actions';
 
 /* Style */
 import './style/css/App.css';
@@ -40,6 +40,7 @@ class App extends Component {
         this.setState({
             main_clicked: true
         })
+        this.props.get_cat();
     };
 
     navigate(target) {
@@ -68,6 +69,10 @@ class App extends Component {
 
                     <p className="App-intro">
                         Hi! My name is Michael and this is a gallery on <code>apps</code> I made.
+                    </p>
+
+                    <p className="App-intro">
+                        {this.props.cat}
                     </p>
 
                     <Card style={my_apps_outer_card_style}>
@@ -121,13 +126,14 @@ class App extends Component {
 
 function mapStateToProps(state) {
     return {
-        menu_state: state.menu_state
+        menu_state: state.menu_state,
+        cat: state.cat
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        set_menu_open
+        set_menu_open, get_cat
     }, dispatch);
 }
 

@@ -11,3 +11,9 @@ export let set_menu_open = (new_state) => {
         payload: new_state
     }
 };
+
+export let get_cat = () => {
+    return {
+        type: "CAT_FETCH_REQUESTED"
+    }
+};
