@@ -27,8 +27,7 @@ import {ConnectedRouter, routerReducer, routerMiddleware} from 'react-router-red
 import createHistory from 'history/createBrowserHistory';
 
 /* Saga */
-import createSagaMiddleware from 'redux-saga'
-import test_saga from './sagas/sagas'
+import createSagaMiddleware from 'redux-saga';
 
 /* External libs / components */
 import HostedOn from 'hosted_on';
@@ -59,8 +58,8 @@ const store = createStore(
     applyMiddleware(router_middleware, saga_middleware)
 );
 
-/* ToDo: Change to a proper saga once this is done */
-saga_middleware.run(test_saga);
+/* ToDo: Sagas go here */
+// saga_middleware.run();
 
 ReactDOM.render(
     <Provider store={store}>
