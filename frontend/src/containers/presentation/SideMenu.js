@@ -18,7 +18,7 @@ import Public from 'material-ui/svg-icons/social/public';
 import Code from 'material-ui/svg-icons/action/code';
 
 /* Actions */
-import {set_menu_open} from '../actions';
+import {set_menu_open} from '../../actions';
 
 class SideMenu extends Component {
     constructor(props) {

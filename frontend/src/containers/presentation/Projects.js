@@ -21,10 +21,10 @@ import Divider from 'material-ui/Divider';
 import TopMenu from './TopMenu';
 
 /* Functions and Constants */
-import {go_to} from '../utils/functions';
+import {go_to} from '../../utils/functions';
 
 /* Style and CSS */
-import {my_apps_outer_card_style, my_apps_text_style} from '../style/js/MyApps';
+import {my_apps_outer_card_style, my_apps_text_style} from '../../style/js/MyApps';
 
 
 class Projects extends Component {

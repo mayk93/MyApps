@@ -15,7 +15,7 @@ import Menu from 'material-ui/svg-icons/navigation/menu';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 
 /* Actions */
-import {set_menu_open} from '../actions';
+import {set_menu_open} from '../../actions';
 
 class TopMenu extends Component {
     constructor(props) {

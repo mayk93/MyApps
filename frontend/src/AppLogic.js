@@ -5,9 +5,6 @@
 /* React */
 import React, {Component} from 'react';
 
-/* Style */
-import './style/css/App.css';
-
 
 class AppLogic extends Component {
     constructor(props) {

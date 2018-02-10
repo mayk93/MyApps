@@ -1,5 +1,5 @@
 /* React */
-import React, {Component} from 'react';
+import React from 'react';
 
 /* Redux */
 import {connect} from 'react-redux';
@@ -16,7 +16,7 @@ import Divider from 'material-ui/Divider';
 
 /* My libs / components */
 import AppLogic from './AppLogic';
-import TopMenu from './containers/TopMenu';
+import TopMenu from './containers/presentation/TopMenu';
 
 /* Actions */
 import {set_menu_open} from './actions';

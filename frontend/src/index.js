@@ -33,9 +33,9 @@ import createSagaMiddleware from 'redux-saga';
 import HostedOn from 'hosted_on';
 
 /* My libs / components */
-import SideMenu from './containers/SideMenu';
-import Projects from './containers/Projects';
-import About from './containers/About';
+import SideMenu from './containers/presentation/SideMenu';
+import Projects from './containers/presentation/Projects';
+import About from './containers/presentation/About';
 
 /* Actual APP */
 import App from './App';
