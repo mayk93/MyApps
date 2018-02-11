@@ -28,6 +28,7 @@ import createHistory from 'history/createBrowserHistory';
 
 /* Saga */
 import createSagaMiddleware from 'redux-saga';
+import {cat_image_saga} from './sagas';
 
 /* External libs / components */
 import HostedOn from 'hosted_on';
@@ -37,7 +38,7 @@ import SideMenu from './containers/presentation/SideMenu';
 import Projects from './containers/presentation/Projects';
 import About from './containers/presentation/About';
 
-/* Actual APP */
+/* Actual App */
 import App from './App';
 import './style/css/index.css';
 
@@ -58,8 +59,7 @@ const store = createStore(
     applyMiddleware(router_middleware, saga_middleware)
 );
 
-/* ToDo: Sagas go here */
-// saga_middleware.run();
+saga_middleware.run(cat_image_saga);
 
 ReactDOM.render(
     <Provider store={store}>

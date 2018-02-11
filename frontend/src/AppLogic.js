@@ -5,27 +5,21 @@
 /* React */
 import React, {Component} from 'react';
 
+/* Functions and constants */
+import {no_action} from '@/constants';
 
 class AppLogic extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            main_clicked: false
-        }
     };
 
     click_handler() {
-        this.setState({
-            main_clicked: true
-        });
+        this.props.get_cat_image();
     };
 
     navigate(target) {
-        this.setState({
-            main_clicked: false
-        }, () => {
-            this.props.history.push(target)
-        })
+        this.props.set_cat_image(no_action);
+        this.props.history.push(target)
     }
 }
 

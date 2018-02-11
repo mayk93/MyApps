@@ -13,22 +13,24 @@ import Info from 'material-ui/svg-icons/action/info';
 import Public from 'material-ui/svg-icons/social/public';
 import Code from 'material-ui/svg-icons/action/code';
 import Divider from 'material-ui/Divider';
+import {CircleLoader} from 'react-spinners';
 
 /* My libs / components */
 import AppLogic from './AppLogic';
 import TopMenu from './containers/presentation/TopMenu';
 
 /* Actions */
-import {set_menu_open} from './actions';
+import {set_menu_open, get_cat_image, set_cat_image} from './actions';
 
 /* Functions and constants */
-import {NARROW_SCREEN_WIDTH} from './constants';
+import {NARROW_SCREEN_WIDTH, loading, failed, no_action} from './constants';
 
 /* Style */
 import './style/css/App.css';
 import {my_apps_outer_card_style, my_apps_text_style} from './style/js/MyApps';
-import {flex_container, flex_90, flex_10} from './style/js/Flex';
+import {flex_container, flex_90, flex_50, flex_10} from './style/js/Flex';
 import {divider_style} from './style/js/Misc';
+import fail_cat from '@/assets/fail_cat.jpg';
 
 
 /* eslint-disable */
@@ -136,8 +138,47 @@ class App extends AppLogic {
         )
     }
 
+    /* ToDo: Split this up - each return is it's own function */
     post_body() {
-        if (this.state.main_clicked) {
+        console.log("cat image: ", this.props.cat_image);
+        console.log("no_action: ", no_action);
+        console.log("result: ", this.props.cat_image === no_action);
+
+        if (this.props.cat_image === no_action) {
+            return <div></div>;
+        } else if (this.props.cat_image === failed) {
+            return (
+                <Card style={my_apps_outer_card_style}>
+                    <CardHeader
+                        title="I tried getting you a cat image, but failed."
+                        subtitle="Sorry about that."
+                        textStyle={my_apps_text_style}
+                    />
+                    <div style={flex_container}>
+                        <img src={fail_cat}></img>
+                    </div>
+                </Card>
+            );
+        } else if (this.props.cat_image === loading) {
+            return (
+                <Card style={my_apps_outer_card_style}>
+                    <CardHeader
+                        title="Loading a cat for you!"
+                        subtitle="It's a big cat."
+                        textStyle={my_apps_text_style}
+                    />
+                    <div style={flex_container}>
+                        <div style={flex_50}></div>
+                        <div style={flex_50}>
+                            <CircleLoader
+                                color={'black'}
+                                loading={true}
+                            />
+                        </div>
+                    </div>
+                </Card>
+            );
+        } else if (this.props.cat_image.indexOf("http") !== -1) {
             return (
                 <Card style={my_apps_outer_card_style}>
                     <CardHeader
@@ -145,10 +186,13 @@ class App extends AppLogic {
                         subtitle="Have a cat picture instead."
                         textStyle={my_apps_text_style}
                     />
+                    <div style={flex_container}>
+                        <img src={this.props.cat_image}></img>
+                    </div>
                 </Card>
             );
         }
-        return <div></div>;
+        return <div>Unknown cat state</div>;
     }
 
     render() {
@@ -167,13 +211,14 @@ class App extends AppLogic {
 
 function mapStateToProps(state) {
     return {
-        menu_state: state.menu_state
+        menu_state: state.menu_state,
+        cat_image: state.cat_image
     };
 }
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators({
-        set_menu_open
+        set_menu_open, get_cat_image, set_cat_image
     }, dispatch);
 }
 
