@@ -23,6 +23,9 @@ import TopMenu from './TopMenu';
 import weather_details from './details/WeatherDetails';
 import bounce_details from './details/BounceDetails';
 
+/* Functions and Constants */
+import {project_weather_key, project_bounce_key} from '@/utils/keys';
+
 /* Style and CSS */
 import {my_apps_outer_card_style, my_apps_text_style} from '@/style/js/MyApps';
 import {divider_style} from '@/style/js/Misc';
@@ -56,7 +59,7 @@ class Projects extends ProjectsLogic {
                 <Divider />
 
                 <List>
-                    <ListItem key={0}
+                    <ListItem key={project_weather_key}
                               primaryText="The weather app" leftIcon={<AcUnit />}
                               onClick={() => {
                                   this.set_project_state("weather");
@@ -65,7 +68,7 @@ class Projects extends ProjectsLogic {
                               nestedItems={weather_details}
                     />
 
-                    <ListItem key={1}
+                    <ListItem key={my_apps_text_style}
                               primaryText="The bounce app" leftIcon={<Language />}
                               onClick={() => {
                                   this.set_project_state("bounce");

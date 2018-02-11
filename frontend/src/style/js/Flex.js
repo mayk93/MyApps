@@ -12,6 +12,11 @@ export let flex_90 = {
     margin: "10px"
 };
 
+export let flex_30 = {
+    width: "30%",
+    margin: "10px"
+};
+
 export let flex_10 = {
     width: "10%",
     margin: "10px"
