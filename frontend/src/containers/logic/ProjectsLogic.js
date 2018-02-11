@@ -13,7 +13,8 @@ class ProjectsLogic extends Component {
         this.state = {
             projects: {
                 weather: false,
-                bounce: false
+                bounce: false,
+                hosted_on: false
             }
         };
     }

@@ -3,3 +3,7 @@
     height: 250px;
     padding: 16px;
 }
+
+.project_image_class_wide {
+    width: 100%;
+}

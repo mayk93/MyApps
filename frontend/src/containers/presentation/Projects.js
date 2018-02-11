@@ -14,7 +14,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {Card, CardHeader} from 'material-ui/Card';
 import {List, ListItem} from 'material-ui/List';
 import AcUnit from 'material-ui/svg-icons/places/ac-unit';
-import Language from 'material-ui/svg-icons/action/language';
+import FiberManualRecord from 'material-ui/svg-icons/av/fiber-manual-record';
+import PanoramaWideAngle from 'material-ui/svg-icons/image/panorama-wide-angle';
 import Divider from 'material-ui/Divider';
 
 /* My libs / components */
@@ -22,9 +23,10 @@ import ProjectsLogic from '../logic/ProjectsLogic';
 import TopMenu from './TopMenu';
 import weather_details from './details/WeatherDetails';
 import bounce_details from './details/BounceDetails';
+import hosted_on_details from './details/HostedOnDetails';
 
 /* Functions and Constants */
-import {project_weather_key, project_bounce_key} from '@/utils/keys';
+import {project_weather_key, project_bounce_key, project_hosted_on_key} from '@/utils/keys';
 
 /* Style and CSS */
 import {my_apps_outer_card_style, my_apps_text_style} from '@/style/js/MyApps';
@@ -68,13 +70,22 @@ class Projects extends ProjectsLogic {
                               nestedItems={weather_details}
                     />
 
-                    <ListItem key={my_apps_text_style}
-                              primaryText="The bounce app" leftIcon={<Language />}
+                    <ListItem key={project_bounce_key}
+                              primaryText="The bounce app" leftIcon={<FiberManualRecord />}
                               onClick={() => {
                                   this.set_project_state("bounce");
                               }}
                               open={this.state.projects.bounce}
                               nestedItems={bounce_details}
+                    />
+
+                    <ListItem key={project_hosted_on_key}
+                              primaryText="Hosted on" leftIcon={<PanoramaWideAngle/>}
+                              onClick={() => {
+                                  this.set_project_state("hosted_on");
+                              }}
+                              open={this.state.projects.hosted_on}
+                              nestedItems={hosted_on_details}
                     />
                 </List>
             </Card>
