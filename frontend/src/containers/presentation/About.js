@@ -19,11 +19,11 @@ import AboutLogic from '../logic/AboutLogic';
 import TopMenu from './TopMenu';
 
 /* Functions and Constants */
-import {go_to} from 'utils/functions';
+import {go_to} from '@/utils/functions';
 
 /* Style and CSS */
-import {my_apps_outer_card_style, my_apps_text_style} from 'style/js/MyApps';
-import {about_section_style} from 'style/js/About';
+import {my_apps_outer_card_style, my_apps_text_style} from '@/style/js/MyApps';
+import {about_section_style} from '@/style/js/About';
 
 
 class About extends AboutLogic {
