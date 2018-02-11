@@ -7,6 +7,7 @@ import {get_cat_image} from './api_calls';
 import {CAT_IMAGE_REQUESTED, CAT_IMAGE_SUCCESS, CAT_IMAGE_FAIL} from '@/utils/types';
 
 
+/* Cat Image */
 function* cat_image_request() {
     try {
         const cat_image = yield call(get_cat_image);
@@ -19,5 +20,6 @@ function* cat_image_request() {
 function* _cat_image_saga() {
     yield takeLatest(CAT_IMAGE_REQUESTED, cat_image_request);
 }
+/* Cat Image */
 
 export let cat_image_saga = _cat_image_saga;

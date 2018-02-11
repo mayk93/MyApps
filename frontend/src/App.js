@@ -139,6 +139,7 @@ class App extends AppLogic {
     }
 
     /* ToDo: Split this up - each return is it's own function */
+    /* ToDo: Get the cat image from the server: <img style={{marginLeft: "25%"}} src={this.props.cat_image}></img> */
     post_body() {
         console.log("cat image: ", this.props.cat_image);
         console.log("no_action: ", no_action);
@@ -155,7 +156,7 @@ class App extends AppLogic {
                         textStyle={my_apps_text_style}
                     />
                     <div style={flex_container}>
-                        <img src={fail_cat}></img>
+                        <img style={{marginLeft: "25%"}} src={fail_cat}></img>
                     </div>
                 </Card>
             );
@@ -187,7 +188,7 @@ class App extends AppLogic {
                         textStyle={my_apps_text_style}
                     />
                     <div style={flex_container}>
-                        <img src={this.props.cat_image}></img>
+                        <img style={{marginLeft: "25%"}} src="http://thecatapi.com/api/images/get?format=src&type=jpg"></img>
                     </div>
                 </Card>
             );

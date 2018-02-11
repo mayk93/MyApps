@@ -7,6 +7,7 @@ import {loading, failed, no_action} from '@/constants';
 
 
 export default function (state=no_action, action) {
+    console.log("action: ", action);
     switch (action.type) {
         case CAT_IMAGE_REQUESTED:
             return loading;
