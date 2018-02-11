@@ -20,18 +20,19 @@ import Divider from 'material-ui/Divider';
 /* My libs / components */
 import ProjectsLogic from '../logic/ProjectsLogic';
 import TopMenu from './TopMenu';
-
-/* Functions and Constants */
-import {go_to} from '@/utils/functions';
+import weather_details from './details/WeatherDetails';
+import bounce_details from './details/BounceDetails';
 
 /* Style and CSS */
 import {my_apps_outer_card_style, my_apps_text_style} from '@/style/js/MyApps';
+import {divider_style} from '@/style/js/Misc';
 
 
 class Projects extends ProjectsLogic {
     constructor(props) {
         super(props);
     }
+
 
     header() {
         return (
@@ -51,22 +52,26 @@ class Projects extends ProjectsLogic {
                 />
 
                 <Divider />
-                <div style={{paddingBottom: "10px", backgroundColor: "black"}}></div>
+                <div style={divider_style}></div>
                 <Divider />
 
                 <List>
-                    <ListItem primaryText="The weather app" leftIcon={<AcUnit />}
+                    <ListItem key={0}
+                              primaryText="The weather app" leftIcon={<AcUnit />}
                               onClick={() => {
-                                  go_to("http://projects.myapps.gallery/weather/")
+                                  this.set_project_state("weather");
                               }}
+                              open={this.state.projects.weather}
+                              nestedItems={weather_details}
                     />
-                </List>
 
-                <List>
-                    <ListItem primaryText="The bounce app" leftIcon={<Language />}
+                    <ListItem key={1}
+                              primaryText="The bounce app" leftIcon={<Language />}
                               onClick={() => {
-                                  go_to("http://projects.myapps.gallery/bounce/")
+                                  this.set_project_state("bounce");
                               }}
+                              open={this.state.projects.bounce}
+                              nestedItems={bounce_details}
                     />
                 </List>
             </Card>
