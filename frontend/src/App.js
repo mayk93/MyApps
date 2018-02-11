@@ -138,60 +138,69 @@ class App extends AppLogic {
         )
     }
 
-    /* ToDo: Split this up - each return is it's own function */
-    /* ToDo: Get the cat image from the server: <img style={{marginLeft: "25%"}} src={this.props.cat_image}></img> */
+    cat_failed() {
+        return (
+            <Card style={my_apps_outer_card_style}>
+                <CardHeader
+                    title="I tried getting you a cat image, but failed."
+                    subtitle="Sorry about that."
+                    textStyle={my_apps_text_style}
+                />
+                <div style={flex_container}>
+                    <img className="app_image" src={fail_cat}></img>
+                </div>
+            </Card>
+        );
+    }
+
+    cat_loading() {
+        return (
+            <Card style={my_apps_outer_card_style}>
+                <CardHeader
+                    title="Loading a cat for you!"
+                    subtitle="It's a big cat."
+                    textStyle={my_apps_text_style}
+                />
+                <div style={flex_container}>
+                    <div style={flex_50}></div>
+                    <div style={flex_50}>
+                        <CircleLoader
+                            color={'black'}
+                            loading={true}
+                        />
+                    </div>
+                </div>
+            </Card>
+        );
+    }
+
+    cat_success() {
+        return (
+            <Card style={my_apps_outer_card_style}>
+                <CardHeader
+                    title="You are already on the main page"
+                    subtitle="Have a cat picture instead."
+                    textStyle={my_apps_text_style}
+                />
+                <div style={flex_container}>
+                    <img className="app_image" src={`data:image/png;base64,${this.props.cat_image}`}></img>
+                </div>
+            </Card>
+        );
+    }
+
     post_body() {
-        console.log("cat image: ", this.props.cat_image);
-        console.log("no_action: ", no_action);
-        console.log("result: ", this.props.cat_image === no_action);
+        console.log(this.props.cat_image)
+        console.log(typeof this.props.cat_image)
 
         if (this.props.cat_image === no_action) {
             return <div></div>;
         } else if (this.props.cat_image === failed) {
-            return (
-                <Card style={my_apps_outer_card_style}>
-                    <CardHeader
-                        title="I tried getting you a cat image, but failed."
-                        subtitle="Sorry about that."
-                        textStyle={my_apps_text_style}
-                    />
-                    <div style={flex_container}>
-                        <img style={{marginLeft: "25%"}} src={fail_cat}></img>
-                    </div>
-                </Card>
-            );
+            return this.cat_failed();
         } else if (this.props.cat_image === loading) {
-            return (
-                <Card style={my_apps_outer_card_style}>
-                    <CardHeader
-                        title="Loading a cat for you!"
-                        subtitle="It's a big cat."
-                        textStyle={my_apps_text_style}
-                    />
-                    <div style={flex_container}>
-                        <div style={flex_50}></div>
-                        <div style={flex_50}>
-                            <CircleLoader
-                                color={'black'}
-                                loading={true}
-                            />
-                        </div>
-                    </div>
-                </Card>
-            );
-        } else if (this.props.cat_image.indexOf("http") !== -1) {
-            return (
-                <Card style={my_apps_outer_card_style}>
-                    <CardHeader
-                        title="You are already on the main page"
-                        subtitle="Have a cat picture instead."
-                        textStyle={my_apps_text_style}
-                    />
-                    <div style={flex_container}>
-                        <img style={{marginLeft: "25%"}} src="http://thecatapi.com/api/images/get?format=src&type=jpg"></img>
-                    </div>
-                </Card>
-            );
+            return this.cat_loading();
+        } else if (typeof this.props.cat_image) {
+            return this.cat_success();
         }
         return <div>Unknown cat state</div>;
     }

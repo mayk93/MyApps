@@ -2,27 +2,25 @@
  * Created by michael on 11/02/2018.
  */
 
-import {cat_url} from '@/constants';
+import {server_url, cat_route} from '@/constants';
 
-let fetch_options = {
+let cat_image_fetch_options = {
     headers: new Headers({
-        "Access-Control-Allow-Origin": "thecatapi.com",
-        "Content-Type": "application/json"
-    }),
-    credentials: "include",
-    mode: "cors",
-    redirect: "follow"
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json'
+    })
 };
 
-// ToDo: Change this to hit own API server
-export let get_cat_image = () => {
-    return "http";
+let cat_url = `${server_url}/${cat_route}`;
 
-    // return fetch(cat_url, fetch_options).then(function (response) {
-    //     console.log("Image response: ", response);
-    //     return response.json();
-    // }).then(function (cat_image) {
-    //     console.log("Image result: ", cat_image);
-    //     return cat_image
-    // });
+export let get_cat_image = () => {
+    console.log(cat_url);
+    return fetch(cat_url, cat_image_fetch_options).then((response) => {
+        console.log("Image response: ", response);
+        return response.json();
+    }).then((cat_image_json) => {
+        console.log("Image result: ", cat_image_json);
+        console.log("Image result data: ", cat_image_json.data);
+        return cat_image_json.data;
+    })
 };

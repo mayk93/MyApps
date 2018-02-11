@@ -13,6 +13,7 @@ function* cat_image_request() {
         const cat_image = yield call(get_cat_image);
         yield put({type: CAT_IMAGE_SUCCESS, cat_image: cat_image});
     } catch (e) {
+        console.log(e);
         yield put({type: CAT_IMAGE_FAIL});
     }
 }
