@@ -183,7 +183,7 @@ class App extends AppLogic {
                     textStyle={my_apps_text_style}
                 />
                 <div style={flex_container}>
-                    <img className="app_image" src={`data:image/png;base64,${this.props.cat_image}`}></img>
+                    <img className="app_image" src={this.props.cat_image}></img>
                 </div>
             </Card>
         );
