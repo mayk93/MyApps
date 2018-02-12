@@ -71,7 +71,7 @@ class App extends AppLogic {
     }
 
     intro() {
-        if (window.width < NARROW_SCREEN_WIDTH) {
+        if (this.screen_width < NARROW_SCREEN_WIDTH) {
             return (
                 <p className={this.intro_message_class}>
                     {this.intro_message}
@@ -138,6 +138,22 @@ class App extends AppLogic {
         )
     }
 
+    render_cat_image(cat_image) {
+        if (this.screen_width < NARROW_SCREEN_WIDTH) {
+            return (
+                <div>
+                    <img className="app_image_narrow" src={cat_image}></img>
+                </div>
+            );
+        } else {
+            return (
+                <div style={flex_container}>
+                    <img className="app_image" src={cat_image}></img>
+                </div>
+            );
+        }
+    }
+
     cat_failed() {
         return (
             <Card style={my_apps_outer_card_style}>
@@ -146,9 +162,7 @@ class App extends AppLogic {
                     subtitle="Sorry about that."
                     textStyle={my_apps_text_style}
                 />
-                <div style={flex_container}>
-                    <img className="app_image" src={fail_cat}></img>
-                </div>
+                {this.render_cat_image(fail_cat)}
             </Card>
         );
     }
@@ -182,9 +196,7 @@ class App extends AppLogic {
                     subtitle="Have a cat picture instead."
                     textStyle={my_apps_text_style}
                 />
-                <div style={flex_container}>
-                    <img className="app_image" src={this.props.cat_image}></img>
-                </div>
+                {this.render_cat_image(this.props.cat_image)}
             </Card>
         );
     }

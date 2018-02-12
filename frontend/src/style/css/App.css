@@ -20,3 +20,7 @@
 .app_image {
   margin-left: 25%;
 }
+
+.app_image_narrow {
+  width: 90%;
+}
