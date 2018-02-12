@@ -11,7 +11,11 @@ import {CAT_IMAGE_REQUESTED, CAT_IMAGE_SUCCESS, CAT_IMAGE_FAIL} from '@/utils/ty
 function* cat_image_request() {
     try {
         const cat_image = yield call(get_cat_image);
-        yield put({type: CAT_IMAGE_SUCCESS, cat_image: cat_image});
+        if (cat_image.length) {
+            yield put({type: CAT_IMAGE_SUCCESS, cat_image: cat_image});
+        } else {
+            yield put({type: CAT_IMAGE_FAIL});
+        }
     } catch (e) {
         console.log(e);
         yield put({type: CAT_IMAGE_FAIL});

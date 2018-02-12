@@ -190,19 +190,16 @@ class App extends AppLogic {
     }
 
     post_body() {
-        console.log(this.props.cat_image)
-        console.log(typeof this.props.cat_image)
-
         if (this.props.cat_image === no_action) {
             return <div></div>;
         } else if (this.props.cat_image === failed) {
             return this.cat_failed();
         } else if (this.props.cat_image === loading) {
             return this.cat_loading();
-        } else if (typeof this.props.cat_image) {
+        } else if (this.props.cat_image.length > 0) {
             return this.cat_success();
         }
-        return <div>Unknown cat state</div>;
+        return <div></div>;
     }
 
     render() {

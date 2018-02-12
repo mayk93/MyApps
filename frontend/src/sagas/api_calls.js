@@ -4,26 +4,26 @@
 
 import {server_url, cat_route} from '@/constants';
 
+let cat_url = `${server_url}/${cat_route}`;
+
 let cat_image_fetch_options = {
     headers: new Headers({})
 };
 
-let cat_url = `${server_url}/${cat_route}`;
-
 export let get_cat_image = () => {
-    console.log(cat_url);
+    // console.log(cat_url);
     return fetch(cat_url, cat_image_fetch_options).then((cat_image_response) => {
+        // console.log("cat_image_response: ", cat_image_response);
         return cat_image_response.arrayBuffer()
     }).then((cat_image_buffer) => {
-        return cat_image_buffer
-    }).then((cat_image_data) => {
-        let array = new Uint8Array(cat_image_data)
-        console.log("array: ", array);
-        return String.fromCharCode.apply(null, array);
-    }).then((x) => {
-        // console.log(x)
-        let b64=btoa(x);
-        console.log("data:image/jpeg;base64,"+b64)
-        return "data:image/jpeg;base64,"+b64;
+        // console.log("cat_image_buffer: ", cat_image_buffer);
+        return new Uint8Array(cat_image_buffer);
+    }).then((cat_image_array) => {
+        // console.log("cat_image_array: ", cat_image_array);
+        return String.fromCharCode.apply(null, cat_image_array);
+    }).then((cat_image_string) => {
+        // console.log("cat_image_string: ", cat_image_string);
+        let cat_image_string_base_64 = btoa(cat_image_string);
+        return `data:image/jpeg;base64,${cat_image_string_base_64}`
     });
 };
