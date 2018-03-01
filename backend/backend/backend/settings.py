@@ -30,8 +30,9 @@ DEBUG = True
 ALLOWED_HOSTS = [
     "*"
 ]
+# ToDo: Change back to port 3000 and myapps.gallery
 CORS_ORIGIN_WHITELIST = (
-    'localhost:3000'
+    'localhost:*'
 )
 CORS_ALLOW_METHODS = default_methods
 CORS_ALLOW_HEADERS = default_headers

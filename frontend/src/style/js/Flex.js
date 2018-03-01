@@ -4,7 +4,8 @@
 
 export let flex_container = {
     display: "flex",
-    flexWrap: "rowrap"
+    flex: "row",
+    flexFlow: "wrap"
 };
 
 export let flex_90 = {

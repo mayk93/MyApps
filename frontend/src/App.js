@@ -27,8 +27,9 @@ import {NARROW_SCREEN_WIDTH, loading, failed, no_action} from './constants';
 
 /* Style */
 import './style/css/App.css';
+import './style/css/overwrites.css';
 import {my_apps_outer_card_style, my_apps_text_style} from './style/js/MyApps';
-import {flex_container, flex_90, flex_50, flex_10} from './style/js/Flex';
+import {flex_container, flex_90, flex_30, flex_10} from './style/js/Flex';
 import {divider_style} from './style/js/Misc';
 import fail_cat from '@/assets/fail_cat.jpg';
 
@@ -141,14 +142,22 @@ class App extends AppLogic {
     render_cat_image(cat_image) {
         if (this.screen_width < NARROW_SCREEN_WIDTH) {
             return (
-                <div>
-                    <img className="app_image_narrow" src={cat_image}></img>
+                <div style={flex_container}>
+                    <div style={flex_30}></div>
+                    <div style={flex_30}>
+                        <img className="app_image_narrow" src={cat_image}></img>
+                    </div>
+                    <div style={flex_30}></div>
                 </div>
             );
         } else {
             return (
                 <div style={flex_container}>
-                    <img className="app_image" src={cat_image}></img>
+                    <div style={flex_30}></div>
+                    <div style={flex_30}>
+                        <img className="app_image" src={cat_image}></img>
+                    </div>
+                    <div style={flex_30}></div>
                 </div>
             );
         }
@@ -176,13 +185,11 @@ class App extends AppLogic {
                     textStyle={my_apps_text_style}
                 />
                 <div style={flex_container}>
-                    <div style={flex_50}></div>
-                    <div style={flex_50}>
-                        <CircleLoader
-                            color={'black'}
-                            loading={true}
-                        />
+                    <div style={flex_30}></div>
+                    <div style={flex_30}>
+                        <CircleLoader loading={true}/>
                     </div>
+                    <div style={flex_30}></div>
                 </div>
             </Card>
         );
