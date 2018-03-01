@@ -3,6 +3,7 @@ node_modules/
 *_env/
 .passwords
 db.sqlite3
+*.sock
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
